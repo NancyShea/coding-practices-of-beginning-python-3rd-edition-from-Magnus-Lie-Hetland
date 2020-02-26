@@ -1,0 +1,32 @@
+#！coding:utf-8
+#author:XieCuinanCAU
+months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'June',
+    'July',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec'
+]
+endings = ['st','nd','rd'] + 17*['th'] + ['st','nd','rd'] + 7*['th'] + ['st']
+year = input('Year:')
+month = input('Month(1-12):')
+day = input('Day(1-31):')
+month_number = int(month)
+day_number = int(day)
+#correct index: day-1,month-1.
+month_name = months[month_number-1]
+ordinal = day + endings[day_number-1]
+"""Nobug when test in VScode or run in Mac terminal.
+But when run in windows'CMD'(python2.7.17),shows "unsupported operand type(s) for +: 'int' and 'str'",
+and still failed if change code to nor "ordinal = str(day + endings[day_number-1])" neither"ordinal = str(day) + str(endings[day_number-1])",
+so it's windows version's problem.
+ridiculous to doubt myself for so long
+"""
+print(month_name + '' + ordinal + ',' + year)
